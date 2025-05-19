@@ -28,6 +28,12 @@ NODES=(
     "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
     "https://github.com/kijai/ComfyUI-Florence2"
     "https://github.com/calcuis/gguf"
+    "https://github.com/Lightricks/ComfyUI-LTXVideo"
+    "https://github.com/WASasquatch/was-node-suite-comfyui"
+    "https://github.com/crystian/ComfyUI-Crystools"
+    "https://github.com/giriss/comfy-image-saver"
+    "https://github.com/M1kep/ComfyLiterals"
+    "https://github.com/DoctorDiffusion/ComfyUI-MediaMixer"
 )
 
 WORKFLOWS=(
