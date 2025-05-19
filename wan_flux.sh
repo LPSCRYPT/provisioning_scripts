@@ -37,6 +37,34 @@ UNET_MODELS=(
 )
 
 LORA_MODELS=(
+    "https://civitai.com/api/download/models/1794316"
+    "https://civitai.com/api/download/models/782610" # cyber UI
+    "https://civitai.com/api/download/models/1726033" # YFG Cinema 4D Abstract
+    "https://civitai.com/api/download/models/1691109" # YFG Acrylic
+    "https://civitai.com/api/download/models/1430848" # Parametric Design
+    "https://civitai.com/api/download/models/772866" # WildStyle Text
+    "https://civitai.com/api/download/models/1193686" # OpticalIllusion
+    "https://civitai.com/api/download/models/1588418?" # Basquiat
+    "https://civitai.com/api/download/models/1346178" # Synthesia
+    "https://civitai.com/api/download/models/865988" # Gerard Richter
+    "https://civitai.com/api/download/models/1726070" # 3D Studio Max
+    "https://civitai.com/api/download/models/802867" # Everyday 3D Render
+    "https://civitai.com/api/download/models/996914" # ascii
+    "https://civitai.com/api/download/models/819856" # vaporwave
+    "https://civitai.com/api/download/models/997381" # breakcore
+    "https://civitai.com/api/download/models/962716" # mechanical insects
+    "https://civitai.com/api/download/models/814781" # digital human
+    "https://civitai.com/api/download/models/927943" # text poster
+    "https://civitai.com/api/download/models/776600" # johnny mnemonic
+    "https://civitai.com/api/download/models/771546" # stained glass
+    "https://civitai.com/api/download/models/832651" # action figure in box
+    "https://civitai.com/api/download/models/806561" # digital glitch
+    "https://civitai.com/api/download/models/753803" # zen ink wash sumi-e
+    "https://civitai.com/api/download/models/762800" # surreal photorealism
+    "https://civitai.com/api/download/models/752643" # pizel style
+    "https://civitai.com/api/download/models/771424" # dystopian realism
+    "https://civitai.com/api/download/models/752866" # junji ito
+    "https://civitai.com/api/download/models/800571" # retro glitch
 )
 
 VAE_MODELS=(
@@ -63,16 +91,30 @@ CLIP_VISION=(
 
 TEXT_ENCODERS=(
     "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp16.safetensors"
+    "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors"
+    "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors"
 )
 
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
 
 function provisioning_start() {
+
     provisioning_print_header
     provisioning_get_apt_packages
     provisioning_get_nodes
     provisioning_get_pip_packages
+
+    # Get licensed models if HF_TOKEN set & valid
+    if provisioning_has_valid_hf_token; then
+        UNET_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/flux1-dev.safetensors")
+        VAE_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/ae.safetensors")
+    else
+        UNET_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/flux1-schnell.safetensors")
+        VAE_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors")
+        sed -i 's/flux1-dev\.safetensors/flux1-schnell.safetensors/g' /opt/ComfyUI/web/scripts/defaultGraph.js
+    fi
+
     provisioning_get_files \
         "${COMFYUI_DIR}/models/checkpoints" \
         "${CHECKPOINT_MODELS[@]}"
@@ -100,17 +142,6 @@ function provisioning_start() {
     provisioning_get_files \
         "${COMFYUI_DIR}/models/clip_vision" \
         "${CLIP_VISION[@]}"   
-
-        # Get licensed models if HF_TOKEN set & valid
-    if provisioning_has_valid_hf_token; then
-        UNET_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/flux1-dev.safetensors")
-        VAE_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/ae.safetensors")
-    else
-        UNET_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/flux1-schnell.safetensors")
-        VAE_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors")
-        sed -i 's/flux1-dev\.safetensors/flux1-schnell.safetensors/g' /opt/ComfyUI/web/scripts/defaultGraph.js
-    fi
-
     provisioning_print_end
 
 }
