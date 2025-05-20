@@ -41,6 +41,7 @@ WORKFLOWS=(
 )
 
 CHECKPOINT_MODELS=(
+    "https://huggingface.co/Lightricks/LTX-Video/resolve/main/ltxv-13b-0.9.7-distilled-fp8.safetensors"
 )
 
 UNET_MODELS=(
@@ -105,7 +106,7 @@ CLIP_VISION=(
 TEXT_ENCODERS=(
     # "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp16.safetensors"
     # "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors"
-    # "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors"
+    "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors"
     "https://huggingface.co/calcuis/ltxv0.9.6-gguf/resolve/main/t5xxl_fp32-q4_0.gguf"
 )
 
