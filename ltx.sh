@@ -41,7 +41,7 @@ WORKFLOWS=(
 )
 
 CHECKPOINT_MODELS=(
-    #"https://huggingface.co/Lightricks/LTX-Video/resolve/main/ltxv-13b-0.9.7-distilled-fp8.safetensors"
+    "https://huggingface.co/Lightricks/LTX-Video/resolve/main/ltxv-13b-0.9.7-distilled-fp8.safetensors"
 )
 
 UNET_MODELS=(
@@ -79,7 +79,6 @@ LORA_MODELS=(
 )
 
 VAE_MODELS=(
-    # "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors"
     "https://huggingface.co/calcuis/ltxv0.9.6-gguf/resolve/main/pig_video_enhanced_vae_fp32-f16.gguf"
 )
 
@@ -90,17 +89,14 @@ CONTROLNET_MODELS=(
 )
 
 DIFFUSION_MODELS=(
-#    "https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/resolve/main/wan2.1-i2v-14b-480p-Q8_0.gguf"
-#     "https://huggingface.co/city96/Wan2.1-I2V-14B-720P-gguf/resolve/main/wan2.1-i2v-14b-720p-Q8_0.gguf"
-#     "https://huggingface.co/city96/Wan2.1-T2V-14B-gguf/resolve/main/wan2.1-t2v-14b-Q8_0.gguf"
     "https://huggingface.co/wsbagnsv1/ltxv-13b-0.9.7-distilled-GGUF/resolve/main/ltxv-13b-0.9.7-distilled-Q8_0.gguf"
     "https://huggingface.co/wsbagnsv1/ltxv-13b-0.9.7-dev-GGUF/resolve/main/ltxv-13b-0.9.7-dev-Q8_0.gguf"
 )
 
 CLIP_VISION=(
     # "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors"
-    # "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors"
-    # "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors"
+    "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors"
+    "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors"
 )
 
 TEXT_ENCODERS=(
@@ -120,15 +116,15 @@ function provisioning_start() {
     provisioning_get_nodes
     provisioning_get_pip_packages
 
-    # Get licensed models if HF_TOKEN set & valid
-    # if provisioning_has_valid_hf_token; then
-    #     UNET_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/flux1-dev.safetensors")
-    #     VAE_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/ae.safetensors")
-    # else
-    #     UNET_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/flux1-schnell.safetensors")
-    #     VAE_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors")
-    #     sed -i 's/flux1-dev\.safetensors/flux1-schnell.safetensors/g' /opt/ComfyUI/web/scripts/defaultGraph.js
-    # fi
+    Get licensed models if HF_TOKEN set & valid
+    if provisioning_has_valid_hf_token; then
+        UNET_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/flux1-dev.safetensors")
+        VAE_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/ae.safetensors")
+    else
+        UNET_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/flux1-schnell.safetensors")
+        VAE_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors")
+        sed -i 's/flux1-dev\.safetensors/flux1-schnell.safetensors/g' /opt/ComfyUI/web/scripts/defaultGraph.js
+    fi
 
     provisioning_get_files \
         "${COMFYUI_DIR}/models/checkpoints" \
