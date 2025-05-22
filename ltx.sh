@@ -42,6 +42,7 @@ WORKFLOWS=(
 
 CHECKPOINT_MODELS=(
     #"https://huggingface.co/Lightricks/LTX-Video/resolve/main/ltxv-13b-0.9.7-distilled-fp8.safetensors"
+    "https://huggingface.co/Lightricks/LTX-Video/resolve/main/ltxv-13b-0.9.7-dev.safetensors"
 )
 
 UNET_MODELS=(
@@ -104,6 +105,11 @@ TEXT_ENCODERS=(
     # "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors"
     "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors"
     "https://huggingface.co/calcuis/ltxv0.9.6-gguf/resolve/main/t5xxl_fp32-q4_0.gguf"
+)
+
+UPSCALER_MODELS=(
+    "https://huggingface.co/Lightricks/LTX-Video/resolve/main/ltxv-spatial-upscaler-0.9.7.safetensors"
+    "https://huggingface.co/Lightricks/LTX-Video/resolve/main/ltxv-temporal-upscaler-0.9.7.safetensors"
 )
 
 
