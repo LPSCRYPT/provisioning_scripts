@@ -37,34 +37,35 @@ UNET_MODELS=(
 )
 
 LORA_MODELS=(
-    "https://civitai.com/api/download/models/1794316"
-    "https://civitai.com/api/download/models/782610" # cyber UI
-    "https://civitai.com/api/download/models/1726033" # YFG Cinema 4D Abstract
-    "https://civitai.com/api/download/models/1691109" # YFG Acrylic
-    "https://civitai.com/api/download/models/1430848" # Parametric Design
-    "https://civitai.com/api/download/models/772866" # WildStyle Text
-    "https://civitai.com/api/download/models/1193686" # OpticalIllusion
-    "https://civitai.com/api/download/models/1588418?" # Basquiat
-    "https://civitai.com/api/download/models/1346178" # Synthesia
-    "https://civitai.com/api/download/models/865988" # Gerard Richter
-    "https://civitai.com/api/download/models/1726070" # 3D Studio Max
-    "https://civitai.com/api/download/models/802867" # Everyday 3D Render
-    "https://civitai.com/api/download/models/996914" # ascii
-    "https://civitai.com/api/download/models/819856" # vaporwave
-    "https://civitai.com/api/download/models/997381" # breakcore
-    "https://civitai.com/api/download/models/962716" # mechanical insects
-    "https://civitai.com/api/download/models/814781" # digital human
-    "https://civitai.com/api/download/models/927943" # text poster
-    "https://civitai.com/api/download/models/776600" # johnny mnemonic
-    "https://civitai.com/api/download/models/771546" # stained glass
-    "https://civitai.com/api/download/models/832651" # action figure in box
-    "https://civitai.com/api/download/models/806561" # digital glitch
-    "https://civitai.com/api/download/models/753803" # zen ink wash sumi-e
-    "https://civitai.com/api/download/models/762800" # surreal photorealism
-    "https://civitai.com/api/download/models/752643" # pizel style
-    "https://civitai.com/api/download/models/771424" # dystopian realism
-    "https://civitai.com/api/download/models/752866" # junji ito
-    "https://civitai.com/api/download/models/800571" # retro glitch
+    # "https://civitai.com/api/download/models/1794316"
+    # "https://civitai.com/api/download/models/782610" # cyber UI
+    # "https://civitai.com/api/download/models/1726033" # YFG Cinema 4D Abstract
+    # "https://civitai.com/api/download/models/1691109" # YFG Acrylic
+    # "https://civitai.com/api/download/models/1430848" # Parametric Design
+    # "https://civitai.com/api/download/models/772866" # WildStyle Text
+    # "https://civitai.com/api/download/models/1193686" # OpticalIllusion
+    # "https://civitai.com/api/download/models/1588418?" # Basquiat
+    # "https://civitai.com/api/download/models/1346178" # Synthesia
+    # "https://civitai.com/api/download/models/865988" # Gerard Richter
+    # "https://civitai.com/api/download/models/1726070" # 3D Studio Max
+    # "https://civitai.com/api/download/models/802867" # Everyday 3D Render
+    # "https://civitai.com/api/download/models/996914" # ascii
+    # "https://civitai.com/api/download/models/819856" # vaporwave
+    # "https://civitai.com/api/download/models/997381" # breakcore
+    # "https://civitai.com/api/download/models/962716" # mechanical insects
+    # "https://civitai.com/api/download/models/814781" # digital human
+    # "https://civitai.com/api/download/models/927943" # text poster
+    # "https://civitai.com/api/download/models/776600" # johnny mnemonic
+    # "https://civitai.com/api/download/models/771546" # stained glass
+    # "https://civitai.com/api/download/models/832651" # action figure in box
+    # "https://civitai.com/api/download/models/806561" # digital glitch
+    # "https://civitai.com/api/download/models/753803" # zen ink wash sumi-e
+    # "https://civitai.com/api/download/models/762800" # surreal photorealism
+    # "https://civitai.com/api/download/models/752643" # pizel style
+    # "https://civitai.com/api/download/models/771424" # dystopian realism
+    # "https://civitai.com/api/download/models/752866" # junji ito
+    # "https://civitai.com/api/download/models/800571" # retro glitch
+    "https://civitai.com/api/download/models/1794316" # caus speed lora
 )
 
 VAE_MODELS=(
