@@ -98,8 +98,7 @@ CLIP_VISION=(
 )
 
 TEXT_ENCODERS=(
-    "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors"
-    "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors"
+
 )
 
 
@@ -129,7 +128,7 @@ function provisioning_start() {
         "${COMFYUI_DIR}/models/unet" \
         "${UNET_MODELS[@]}"
     provisioning_get_files \
-        "${COMFYUI_DIR}/models/lora" \
+        "${COMFYUI_DIR}/models/loras" \
         "${LORA_MODELS[@]}"
     provisioning_get_files \
         "${COMFYUI_DIR}/models/controlnet" \
